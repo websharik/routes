@@ -27,17 +27,17 @@ class Routes {
 	static function match_current_request() {
 		global $upstatement_routes;
 		if (isset($upstatement_routes->router)) {
-			$route = $upstatement_routes->router->match();
-			
-			unset($upstatement_routes->router);
-			
-			if ($route && isset($route['target'])) {
-				if ( isset($route['params']) ) {
-					call_user_func($route['target'], $route['params']);
-				} else {
-					call_user_func($route['target']);
-				}
-			}
+            //get array of matched routes and call target per route
+            foreach ($upstatement_routes->router->match(null, null, false) as $route) {
+                if (isset($route['target'])) {
+                    if ( isset($route['params']) ) {
+                        call_user_func($route['target'], $route['params']);
+                    } else {
+                        call_user_func($route['target']);
+                    }
+                }
+            }
+            unset($upstatement_routes->router);
 		}
 	}
 
