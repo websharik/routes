@@ -21,9 +21,15 @@
         "wiki": "https://github.com/jarednova/routes/wiki",
         "source": "https://github.com/jarednova/routes"
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/websharik/AltoRouter"
+        }
+    ],
     "require": {
         "php": ">=5.6.0",
-        "altorouter/altorouter": "^2.0",
+        "altorouter/altorouter": ">=2.0.2",
         "composer/installers": "~1.0"
     },
     "require-dev": {
